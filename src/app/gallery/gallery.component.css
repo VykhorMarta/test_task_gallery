@@ -1,17 +1,19 @@
 .gallery {
-    column-count: 3;
+    column-count: 4;
     column-width: 33%; 
     margin: 30px 80px;
+
 }
-/* .gallery .pics {
-    transition: all 350ms ease; 
-} */
+.example-card{
+    cursor: pointer;    
 
+}
+  .price{
+      float: right;
+  }
 
-  
   .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    /* background-size: cover; */
   }
 
 

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../services/galleryService';
 import { Card } from '../info';
 import { HttpClient } from '@angular/common/http';
-
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { DialogContentComponent } from '../dialog-content/dialog-content.component';
 
 @Component({
   selector: 'app-gallery',
@@ -11,16 +12,32 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GalleryComponent implements OnInit {
 
-  card: Card;
 
-  info = {};
-  constructor(private serviceGallery: GalleryService) {
-    this.serviceGallery.getInfo().add(data => this.info = data);
+  card: Card;
+  info = [];
+  price = [];
+  constructor(private serviceGallery: GalleryService, private dialog: MatDialog) {
+    this.serviceGallery.getInfo().subscribe(data => this.info = data);
 
    }
 
-  ngOnInit() {
+  // Modal dialog
+    openDialog() {
+      const dialogConfig = new MatDialogConfig();
+      this.dialog.open(DialogContentComponent, dialogConfig);
+      };
+  
+  //Random price   
+    getRandomPrice(){
+       const num = Math.floor((Math.random()* 1500) + 20);
+        return this.price[num];
   }
+
+
+
+  ngOnInit() {
+    
+      }
 
 
 }

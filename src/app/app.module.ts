@@ -5,17 +5,20 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule, MatInputModule, MatButtonModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 
 import { GalleryService } from './services/galleryService';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GalleryComponent
+    GalleryComponent,
+    DialogContentComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +26,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule, 
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [GalleryService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogContentComponent]
 })
 export class AppModule { }

@@ -4,54 +4,20 @@
 <div class="gallery">
 
   <!-- Grid column -->
-  <div class="mb-3 pics animation all 2">
-    <mat-card class="example-card">
-      <img mat-card-image alt="Photo of a Shiba Inu" [src]="card.photo">
+  <div class="mb-3 pics animation all 2" *ngFor="let card of info" (click)="openDialog()">
+    <mat-card class="example-card" >
+      <img mat-card-image alt="Card" [src]="card.img_src">
       <mat-card-content>
-        <h3>{{card.name}}</h3>
+        <p><b>{{card.name}}</b></p>
         <p>{{card.full_name}}</p>
+        <p class="price">${{price}}</p>
       </mat-card-content>
     </mat-card>  
   </div>
+  
   <!-- Grid column -->
 
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 1">
-    <mat-card class="example-card">
-      <img mat-card-image src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          lor
-        </p>
-      </mat-card-content>
-    </mat-card>  
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 2">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 1">
-      <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
-  </div>
-  <!-- Grid column -->
-
+  
 </div>
 <!-- Grid row -->
 

@@ -2,6 +2,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs';
+import {Observable} from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Injectable()
 export class GalleryService {
@@ -12,17 +14,10 @@ export class GalleryService {
 
       getInfo() {
         return this.http.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo')
-        .subscribe((res:Response) => res.json());
-        
+          .pipe(map((res:Response) => res.json().photos));
+          
       }
-
-    
-    
-      // console(){
-      // var req = new Request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo');
-      // fetch(req)
-      // .then(function(response) {
-      //   console.log(response.json());
-      // })}
+              
+        
     }
     
