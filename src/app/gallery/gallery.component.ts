@@ -12,13 +12,13 @@ import { DialogContentComponent } from '../dialog-content/dialog-content.compone
 })
 export class GalleryComponent implements OnInit {
 
+  // price: void;
 
-  card: Card;
   info = [];
   price = [];
   constructor(private serviceGallery: GalleryService, private dialog: MatDialog) {
     this.serviceGallery.getInfo().subscribe(data => this.info = data);
-
+    this.info.sort();
    }
 
   // Modal dialog
@@ -27,16 +27,9 @@ export class GalleryComponent implements OnInit {
       this.dialog.open(DialogContentComponent, dialogConfig);
       };
   
-  //Random price   
-    getRandomPrice(){
-       const num = Math.floor((Math.random()* 1500) + 20);
-        return this.price[num];
-  }
-
-
-
+      
   ngOnInit() {
-    
+    this.price = this.serviceGallery.getRandomPrice();
       }
 
 

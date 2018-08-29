@@ -17,7 +17,14 @@ export class GalleryService {
           .pipe(map((res:Response) => res.json().photos));
           
       }
-              
+        
+      getRandomPrice(){
+        for(let i=1; i <= 25; i++){
+          let num = Math.floor((Math.random()* 1500) + 20);
+          console.log(num)
+          return [num];
+        }
+      }
         
     }
     

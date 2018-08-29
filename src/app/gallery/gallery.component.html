@@ -8,14 +8,12 @@
     <mat-card class="example-card" >
       <img mat-card-image alt="Card" [src]="card.img_src">
       <mat-card-content>
-        <p><b>{{card.name}}</b></p>
-        <p>{{card.full_name}}</p>
-        <p class="price">${{price}}</p>
+        <p><b>{{card.camera.name}}</b></p>
+        <p>{{card.camera.full_name}}</p>
+        <p class="price" *ngFor="let items of price">${{items}}</p>
       </mat-card-content>
     </mat-card>  
   </div>
-  
-  <!-- Grid column -->
 
   
 </div>
