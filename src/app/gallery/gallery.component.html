@@ -8,10 +8,10 @@
     <mat-card class="example-card" >
       <img mat-card-image alt="Card" [src]="card.img_src">
       <mat-card-content>
-        <p><b>{{card.camera.name}}</b></p>
+        <p><b>{{card.camera.name}} {{name}}</b></p>
         <p>{{card.camera.full_name}} </p>
         <p class="price">$ {{price[i]}}</p>
-        <button mat-button class="btn btn-outline-light font-weight-bold" (click)="openDialog(file)">Edit</button>
+        <button mat-button class="btn btn-outline-light font-weight-bold" (click)="openDialog(i)">Edit</button>
 
         <button mat-button class="btn btn-outline-light font-weight-bold" (click) ="deleteCard(i)">Delete</button>
 

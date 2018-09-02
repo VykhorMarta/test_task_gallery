@@ -15,6 +15,7 @@ export class GalleryComponent implements OnInit {
   edit = [];
   info = [];
   price = [];
+  name:string
   constructor(private serviceGallery: GalleryService, private dialog: MatDialog) {
     this.serviceGallery.getInfo().subscribe(data => this.info = data);
     // this.info.sort();
@@ -22,18 +23,20 @@ export class GalleryComponent implements OnInit {
 
   // Modal dialog
     openDialog(i) {
+      
       const dialogConfig = new MatDialogConfig();
 
       dialogConfig.data = {
-        name: '',
-        full_name: ''
-    };
+        name
+      };
       const dialogRef = this.dialog.open(DialogContentComponent, dialogConfig);  
 
-
-      dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", data)
-    ); 
+    //   dialogRef.afterClosed().subscribe(
+    //     data => console.log("Dialog output:", data)
+    // ); 
+    dialogRef.afterClosed().subscribe(
+      data => this.name = data.name
+  ); 
     }
 
 
