@@ -3,14 +3,18 @@
 <!-- Grid row -->
 <div class="gallery">
 
-  <!-- Grid column -->
-  <div class="mb-3 pics animation all 2" *ngFor="let card of info" (click)="openDialog()">
+  <!-- Grid column--> 
+  <div class="mb-3 pics animation all 2" *ngFor="let card of info; let i = index"> 
     <mat-card class="example-card" >
       <img mat-card-image alt="Card" [src]="card.img_src">
       <mat-card-content>
         <p><b>{{card.camera.name}}</b></p>
-        <p>{{card.camera.full_name}}</p>
-        <p class="price" *ngFor="let items of price">${{items}}</p>
+        <p>{{card.camera.full_name}} </p>
+        <p class="price">$ {{price[i]}}</p>
+        <button mat-button class="btn btn-outline-light font-weight-bold" (click)="openDialog(file)">Edit</button>
+
+        <button mat-button class="btn btn-outline-light font-weight-bold" (click) ="deleteCard(i)">Delete</button>
+
       </mat-card-content>
     </mat-card>  
   </div>

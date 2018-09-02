@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MatCardModule} from '@angular/material/card';
@@ -29,7 +29,8 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
     HttpClientModule,
     MatDialogModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [GalleryService],
   bootstrap: [AppComponent],

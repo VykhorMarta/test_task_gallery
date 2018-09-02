@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../services/galleryService';
-import { Card } from '../info';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { DialogContentComponent } from '../dialog-content/dialog-content.component';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
@@ -12,25 +12,42 @@ import { DialogContentComponent } from '../dialog-content/dialog-content.compone
 })
 export class GalleryComponent implements OnInit {
 
-  // price: void;
-
+  edit = [];
   info = [];
   price = [];
   constructor(private serviceGallery: GalleryService, private dialog: MatDialog) {
     this.serviceGallery.getInfo().subscribe(data => this.info = data);
-    this.info.sort();
+    // this.info.sort();
    }
 
   // Modal dialog
-    openDialog() {
+    openDialog(i) {
       const dialogConfig = new MatDialogConfig();
-      this.dialog.open(DialogContentComponent, dialogConfig);
-      };
-  
-      
-  ngOnInit() {
-    this.price = this.serviceGallery.getRandomPrice();
+
+      dialogConfig.data = {
+        name: '',
+        full_name: ''
+    };
+      const dialogRef = this.dialog.open(DialogContentComponent, dialogConfig);  
+
+
+      dialogRef.afterClosed().subscribe(
+        data => console.log("Dialog output:", data)
+    ); 
+    }
+
+
+  //Delete card
+      deleteCard(i){ 
+        this.info.splice(i, 1);
       }
+
+  //Price
+  ngOnInit() {
+    this.price =  this.serviceGallery.getRandomPrice()
+      }
+      
+      
 
 
 }
